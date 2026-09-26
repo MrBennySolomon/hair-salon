@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Download, Lock, Phone, RefreshCw, Search, X } from "lucide-react";
+import "../data/Login.css";
 
 const API_URL = "https://6aae754a606bd915d110d395.mockapi.io/api/salon-clients";
 
@@ -112,7 +113,7 @@ export default function Admin() {
   }, [authed]);
 
   async function remove(id) {
-    if (!window.confirm("למחוק את הפנייה? הפעולה אינה הפיכה.")) return;
+    if (!window.confirm("למחוק את הבקשה? הפעולה אינה הפיכה.")) return;
 
     setDeletingId(id);
 
@@ -126,7 +127,7 @@ export default function Admin() {
       setRows((prev) => prev.filter((row) => row.id !== id));
     } catch (err) {
       console.error(err);
-      setError("מחיקת הפנייה נכשלה. נסו שוב.");
+      setError("מחיקת הבקשה נכשלה. נסו שוב.");
     } finally {
       setDeletingId(null);
     }
@@ -181,7 +182,7 @@ export default function Admin() {
     const link = document.createElement("a");
 
     link.href = url;
-    link.download = `pniyot-${new Date().toISOString().slice(0, 10)}.csv`;
+    link.download = `hovalot-${new Date().toISOString().slice(0, 10)}.csv`;
     link.click();
 
     URL.revokeObjectURL(url);
@@ -198,7 +199,6 @@ export default function Admin() {
           </div>
 
           <h1>כניסה לניהול</h1>
-          <p>הזינו סיסמה כדי לצפות בבקשות</p>
 
           <input
             type="password"
@@ -210,7 +210,7 @@ export default function Admin() {
 
           {authError && <div className="login-error">{authError}</div>}
 
-          <button className="btn-primary" type="submit">
+          <button className="btn-primary1" type="submit">
             כניסה
           </button>
         </form>
@@ -224,9 +224,9 @@ export default function Admin() {
 
       <header className="admin-head">
         <div>
-          <h1>בקשות לתורים</h1>
+          <h1>בקשות הצעת מחיר</h1>
           <p>
-            {rows.length} בקשות במערכת · {visible.length} מוצגות כעת
+            {rows.length} פניות במערכת · {visible.length} מוצגות כעת
           </p>
         </div>
 
@@ -257,7 +257,7 @@ export default function Admin() {
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="חיפוש לפי שם, טלפון או פרטים"
+            placeholder="חיפוש לפי שם, טלפון או תיאור"
           />
         </label>
 
@@ -285,11 +285,11 @@ export default function Admin() {
 
       {error && <div className="state error">{error}</div>}
 
-      {loading && <div className="state">טוען בקשות…</div>}
+      {loading && <div className="state">טוען פניות…</div>}
 
       {!loading && !visible.length && !error && (
         <div className="state">
-          אין בקשות להצגה. שנו את החיפוש או הסינון כדי לראות בקשות אחרות.
+          אין פניות להצגה. שנו את החיפוש או הסינון כדי לראות פניות אחרות.
         </div>
       )}
 
@@ -498,32 +498,7 @@ const css = `
 @keyframes admin-spin { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) { .spin { animation: none; } }
 
-.login-screen { display: grid; place-items: center; padding: 20px; }
-.login-card {
-  width: 100%; max-width: 340px; background: var(--panel);
-  border: 1px solid var(--line); border-radius: 16px;
-  padding: 28px 24px; text-align: center;
-  box-shadow: 0 10px 30px rgba(20,30,45,.06);
-}
-.login-icon {
-  width: 44px; height: 44px; border-radius: 50%; margin: 0 auto 14px;
-  display: grid; place-items: center; background: #eef1f5; color: #334155;
-}
-.login-card h1 { font-size: 1.25rem; margin-bottom: 4px; }
-.login-card p { margin-bottom: 18px; }
-.login-card input {
-  width: 100%; font: inherit; padding: 11px 13px; border-radius: 10px;
-  border: 1px solid var(--line); text-align: center; margin-bottom: 12px;
-  background: #fbfcfd; color: var(--ink);
-}
-.login-card input:focus-visible { outline: 2px solid #2f6fd0; outline-offset: 1px; }
-.login-error { color: #b3202c; font-size: .85rem; margin-bottom: 12px; }
-.btn-primary {
-  width: 100%; font: inherit; font-weight: 600; cursor: pointer;
-  padding: 11px 14px; border-radius: 10px; border: none;
-  background: #16202c; color: #fff;
-}
-.btn-primary:hover { background: #223042; }
+/* עיצוב מסך הכניסה (login-screen / login-card וכו') עבר לקובץ Login.css המשותף */
 
 /* טאבלט */
 @media (max-width: 1024px) {
