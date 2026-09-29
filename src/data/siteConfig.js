@@ -13,7 +13,6 @@ const siteConfig = {
     { to: "/services", label: "שירותים" },
     { to: "/admin", label: "ניהול תורים" },
     { to: "/edit", label: "עריכת האתר" },
-    { to: "/upload", label: "העלאת תמונות" },
     { to: "/contact", label: "קביעת תור" }
   ],
 
