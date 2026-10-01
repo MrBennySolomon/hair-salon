@@ -11,15 +11,15 @@ const siteConfig = {
     { to: "/", label: "ראשי" },
     { to: "/about", label: "אודות" },
     { to: "/services", label: "שירותים" },
-    { to: "/admin", label: "ניהול תורים" },
+    { to: "/admin", label: "ניהול" },
     { to: "/edit", label: "עריכת האתר" },
     { to: "/login", label: "התחבר" },
     { to: "/contact", label: "קביעת תור" }
   ],
 
   colors: {
-    accent: "#df62d1",
-    accent2: "#b64a59",
+    accent: "#b64a59",
+    accent2: "#db8f99",
     dark: "#21191d"
   },
 
