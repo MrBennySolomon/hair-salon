@@ -1,6 +1,6 @@
 const siteConfig = {
   brand: {
-    name: "סטודיו ביוטי סיטי",
+    name: "סטודיו ביוטי",
     tagline: "מספרה · עיצוב · טיפוח",
     phone: "050-000-0000",
     phoneHref: "0500000000",
@@ -43,7 +43,7 @@ const siteConfig = {
   },
   hero: {
     eyebrow: "היופי שלך מתחיל כאן",
-    titleLine1: "שיער שאת",
+    titleLine1: "עיצוב השיער שאת",
     titleSpan: "אוהבת.",
     text: "תספורות, צבע, גוונים, החלקות ועיצוב שיער בהתאמה אישית — באווירה נעימה וביחס אישי.",
     ctaPrimaryText: "קבעי תור",
